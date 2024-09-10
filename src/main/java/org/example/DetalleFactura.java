@@ -1,8 +1,7 @@
 package org.example;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
 
@@ -11,6 +10,9 @@ import javax.persistence.*;
 @Builder
 @Getter
 @Setter
+@Audited
+@AllArgsConstructor
+@NoArgsConstructor
 public class DetalleFactura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

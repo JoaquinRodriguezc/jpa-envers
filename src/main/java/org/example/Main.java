@@ -14,7 +14,7 @@ public class Main {
         try {
             // Persistir una nueva entidad Person
             entityManager.getTransaction().begin();
-            Domicilio domicilio = Domicilio.builder().nombreCalle("Av. Pedro Molina").numero(4183).build();
+        /*    Domicilio domicilio = Domicilio.builder().nombreCalle("Av. Pedro Molina").numero(4183).build();
             Cliente cliente = Cliente.builder()
                     .nombre("Joaco")
                     .apellido("Rodriguez").domicilio(domicilio).build();
@@ -46,8 +46,12 @@ public class Main {
             factura1.setTotal(120);
             entityManager.persist(factura1);
             entityManager.persist(det1);
-            entityManager.persist(det2);
-
+            entityManager.persist(det2);*/
+            Factura factura2 = entityManager.find(Factura.class, 1L);
+            
+            factura2.setNumero(815);
+            entityManager.remove(factura2);
+            entityManager.flush();
             entityManager.getTransaction().commit();
 
 

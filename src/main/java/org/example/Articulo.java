@@ -1,8 +1,7 @@
 package org.example;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,6 +12,9 @@ import java.util.List;
 @Builder
 @Getter
 @Setter
+@Audited
+@AllArgsConstructor
+@NoArgsConstructor
 public class Articulo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,5 +28,6 @@ public class Articulo {
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_categoria")
     @Builder.Default
+
     private List<Categoria> categorias = new ArrayList<Categoria>();
 }
